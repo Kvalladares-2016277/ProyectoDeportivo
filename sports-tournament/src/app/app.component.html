@@ -1,0 +1,10 @@
+<div class="sidebar" *ngIf="role == 'ROLE_ADMIN' && role != null; else user">
+    <app-sidebar></app-sidebar>
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #user>
+    <app-navbar *ngIf="token != null"></app-navbar>
+
+    <router-outlet></router-outlet>
+</ng-template>

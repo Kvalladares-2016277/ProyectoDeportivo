@@ -1,0 +1,43 @@
+<!-- Teams -->
+<div class="main p-4">
+    <div class="container pt-4 pb-4 m0-auto row">
+        <div class="card shadow-sm leagues bg-light col-1 p-1" style="width: 18rem;" *ngFor="let team of teams">
+            <img src="{{ uri + 'team/getTeamImage/' + team.img }}" class="card-img-top" alt="...">
+            <div class="card-body position-relative">
+                <h5 class="card-title fw-bolder mb-2 text-center">{{ team.name }}</h5>
+                <div class="row gap-2 m0-auto">
+                    <a class="btn btn-warning col-5" data-bs-toggle="modal" data-bs-target="#updateTeam" (click)="setTeamInfo(team)"><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-danger col-5" (click)="deleteTeam(team)"><i class="bi bi-trash-fill "></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update Team -->
+<div class="modal fade" id="updateTeam" tabindex="-1" aria-labelledby="updateTeamLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateTeamLabel">Modificar Equipo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearTeamInfo()"></button>
+            </div>
+            <form class="modal-body" #teamForm="ngForm" (ngSubmit)="onSubmit(teamForm)">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Actualiza el nombre del equipo:</label>
+                    <input [(ngModel)]="team.name" class="form-control" type="text" name="name" id="name" placeholder="Equipo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Actualice la imagen:</label>
+                    <input class="form-control" type="file" name="image" id="image" placeholder="Imagen" required (change)="fileChange($event)">
+                </div>
+                <div class="mb-3 d-grid gap-2">
+                    <button class="btn btn-warning" type="submit" [disabled]="!teamForm.form.valid">Actualizar</button>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="clearTeamInfo()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

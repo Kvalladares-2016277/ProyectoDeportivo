@@ -1,0 +1,37 @@
+img {
+    max-width: 20rem!important;
+    max-height: 20rem!important;
+}
+
+@media (max-width: 768px) {
+    .responsiveC {
+        display: flex!important;
+        flex: column!important;
+    }
+    .responsiveC div {
+        width: 100vw!important;
+    }
+}
+
+.m0-auto {
+    height: auto!important;
+    width: auto!important;
+    margin: 0 auto!important;
+}
+
+.bg-custom {
+    background-color: rgb(240, 241, 255)!important;
+}
+
+a {
+    text-decoration: none;
+    align-items: center;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.mt-custom {
+    margin-top: 7rem!important;
+}

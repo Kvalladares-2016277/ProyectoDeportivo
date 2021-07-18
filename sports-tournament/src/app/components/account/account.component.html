@@ -1,0 +1,103 @@
+<div class="d-flex mt-custom container fluid bg-light p-4 border border-white shadow-sm border-3 bg-custom">
+
+    <form #myAccountForm="ngForm" (ngSubmit)="updateMyAccount(myAccountForm)" class="col responsiveC p-4">
+        <p class="fs-1 fw-bolder">Perfil Usuario</p>
+        <div class="col-10">
+            <div class="mb-3 ">
+                <label for="username" class="form-label text-black-50 fw-bolder">Nombre de Usuario</label>
+                <input [(ngModel)]="myAccount.username" type="text" name="username" id="username" class="form-control" placeholder="username">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label text-black-50 fw-bolder">Nombre</label>
+                <input [(ngModel)]="myAccount.name" type="name" name="name" id="name" class="form-control" placeholder="name">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label text-black-50 fw-bolder">Apellido</label>
+                <input [(ngModel)]="myAccount.lastname" type="lastname" name="lastname" id="lastname" class="form-control" placeholder="lastname">
+            </div>
+            <div class="d-flex justify-content-around">
+                <button type="submit" class="btn btn-outline-primary" [disabled]="!myAccountForm.form.valid">Actualizar Datos</button>
+            </div>
+        </div>
+    </form>
+    <form class="col" #uploadUserImageForm="ngForm" (ngSubmit)="uploadUserImage(uploadUserImageForm)">
+        <div class="col">
+            <div class="mb-3 col-sm-6">
+                <img *ngIf="!myAccount.img" class="rounded-circle mx-auto d-block img-fluid" max-width="50" max-height="50" src="https://i.stack.imgur.com/l60Hf.png" alt="img...">
+                <img *ngIf="myAccount.img" class="rounded-circle mx-auto d-block img-fluid" max-width="50" max-height="50" src="{{ uri + 'user/getUserImage/' + myAccount.img }}" alt="img...">
+            </div>
+            <div class="mb-3 col-sm-6 text-center">
+                <label for="username" class="form-label text-black-50 fw-bolder">Elige una imagen de perfil</label>
+                <input class="form-control" type="file" name="img" id="userImage" (change)="fileChange($event)" required>
+                <button type="submit" class="mt-2 btn btn-success">Subir imagen</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+</div>
+
+<div class="container fluid bg-light p-4 pt-0 mt-4 mb-4 border border-white shadow-sm border-3 bg-custom">
+    <form #updatePasswordForm="ngForm" (ngSubmit)="updatePassword(updatePasswordForm)" class="d-flex responsiveC mt-4 p-4 text-center">
+        <div class="text-center">
+            <p class="fs-1 fw-bolder">Configuración de Privacidad</p>
+            <div class="">
+                <div class="mb-3">
+                    <label for="password" class="form-label text-black-50 fw-bolder">Contraseña</label>
+                    <input [(ngModel)]="updateUserPassword.current" type="password" name="current" id="currentPassword" class="form-control mb-2" placeholder="Contraseña actual">
+                    <input [(ngModel)]="updateUserPassword.new" type="password" name="new" id="newPassword" class="form-control mb-2" placeholder="Añade una nueva contraseña">
+                    <input [(ngModel)]="updateUserPassword.confirmNew" type="password" name="confirmNew" id="againNePassword" class="form-control mb-2" placeholder="Confirma tu nueva contraseña">
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="d-flex justify-content-around">
+                <button type="submit" class="btn btn-outline-warning" [disabled]="!updatePasswordForm.form.valid">Actualizar Datos</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="container fluid bg-light p-4 pt-0 mt-4 mb-4 border border-white shadow-sm border-3 bg-custom">
+    <div class="row responsiveC mt-4">
+        <p class="fs-1 fw-bolder">Eliminar Cuenta</p>
+        <div class="col-6">
+            <div class="mb-3 col-sm-8">
+                <p>Esta accion es irreversible</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-outline-danger col-sm-3" data-bs-toggle="modal" data-bs-target="#deleteAccountUserModal">Eliminar cuenta</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Confirmacion de eliminar cuenta -->
+<div class="modal fade" id="deleteAccountUserModal" tabindex="-1" aria-labelledby="deleteAccountUserLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteAccountUserLabel">Eliminar Cuenta de Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="fs-1 text-danger">¡Cuidado!</p>
+                <p class="fs-4 text-danger text-uppercase">¿Seguro que deseas eliminar tu cuenta permanentemente?</p>
+                <p class="fs-4 text-uppercase">Esta acción no se puede deshacer</p>
+                <div class="mb-3 d-grid">
+                    <button type="" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteAccountUser()">ELIMINAR MI CUENTA</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

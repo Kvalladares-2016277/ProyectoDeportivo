@@ -1,0 +1,91 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.custom-font {
+    font-family: 'Squada One', cursive;
+}
+
+.register {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.register-form-l {
+    border-bottom-right-radius: 20rem;
+    border-top-right-radius: 20rem;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+}
+
+.register-form-l div button:hover {
+    color: black!important;
+}
+
+.register-form-r {
+    /* width: 50%; */
+}
+
+@media (max-width: 768px) {
+    .register {
+        display: block;
+        width: 100vw;
+        flex-direction: column;
+        margin: 0!important;
+        padding: 0!important;
+        max-width: 100vw;
+        padding: 1rem 0!important;
+        /* flex-direction: column; */
+    }
+    .register-form-l {
+        margin: 0!important;
+        width: 100vw;
+        border-bottom-right-radius: 0!important;
+        border-top-right-radius: 0!important;
+        border-top-left-radius: 0!important;
+        border-bottom-left-radius: 0!important;
+    }
+    .register-form-l>div {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+    /* .register-form-r {} */
+}
+
+.bg-custom {
+    background: hsla(148, 100%, 47%, 1);
+    background: linear-gradient(90deg, hsla(148, 100%, 47%, 1) 0%, hsla(211, 90%, 47%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(148, 100%, 47%, 1) 0%, hsla(211, 90%, 47%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(148, 100%, 47%, 1) 0%, hsla(211, 90%, 47%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00EE6E", endColorstr="#0C75E6", GradientType=1);
+}
+
+button:hover {
+    color: #fff;
+}
+
+form {
+    max-width: 40rem;
+    padding: 3rem;
+}
+
+@media (max-width: 768px) {
+    form {
+        /* padding: 1rem; */
+        margin: 0!important;
+        padding: 0!important;
+    }
+}

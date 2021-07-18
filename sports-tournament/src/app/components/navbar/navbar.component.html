@@ -1,0 +1,48 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary text-light p-2 pe-4 ps-4">
+    <div class="container">
+        <a class="navbar-brand fs-2" routerLink="/home"><i class="bi bi-kanban-fill"></i></a>
+
+        <div class="collapse navbar-collapse mobile-view" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ps-4">
+                <li class="nav-item">
+                    <a class="nav-link enter" routerLink="/home">Inicio</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link enter" routerLink="/stadistics">Estadisticas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link enter" routerLink="/leagues">Ligas</a>
+                </li>
+            </ul>
+            <!-- <form class="form-inline d-flex search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form> -->
+            <div class="btn-group dropstart dark-enters dropdown-web">
+                <button type="button" class="btn dropdown-toggle fs-3 text-light" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear-wide-connected text-light"></i>
+            </button>
+                <ul class="dropdown-menu text-dark">
+                    <li><a class="dropdown-item dark-enters" type="button" routerLink="/account">Mi cuenta</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a type="button" class="dropdown-item dark-enters" (click)="logOut()">Salir</a></li>
+                </ul>
+            </div>
+            <div class="dropdown dropdown-mobile dark-enters">
+                <div class="d-flex">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Configuracion
+                </button>
+                </div>
+                <ul class="dropdown-menu text-dark">
+                    <li><a class="dropdown-item dark-enters" type="button" routerLink="/account">Mi cuenta</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item dark-enters" type="button">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

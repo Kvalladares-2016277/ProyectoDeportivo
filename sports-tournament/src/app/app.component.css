@@ -1,0 +1,22 @@
+body {
+    background-color: #d5d5d5;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: column;
+        width: 100vw;
+    }
+}
+
+.routes {
+    width: 85vw;
+    margin: 0 auto;
+    top: 80;
+}

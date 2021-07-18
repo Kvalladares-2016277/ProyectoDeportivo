@@ -1,0 +1,26 @@
+.main {
+    max-height: 100vh!important;
+    width: 85vw!important;
+    margin: 0 auto!important;
+    height: 100vh!important;
+}
+
+table {
+    border-spacing: 10px;
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}
+
+table,
+th,
+td {
+    border: 9px;
+    width: 50%;
+}
+
+.mt-custom {
+    margin-top: 7rem!important;
+}

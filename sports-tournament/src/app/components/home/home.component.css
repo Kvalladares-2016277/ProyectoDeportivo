@@ -1,0 +1,8 @@
+img {
+    height: 100vh!important;
+}
+
+.imgAdmin {
+    height: 100vh !important;
+    min-width: 1360px;
+}

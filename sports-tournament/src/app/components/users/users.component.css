@@ -1,0 +1,29 @@
+.main {
+    max-height: 80vh!important;
+    width: 85vw!important;
+    margin: 0 auto!important;
+    height: 80vh!important;
+}
+
+.jumbotron{
+    background: #3f37c9;
+}
+
+.maxheight {
+    max-height: 22rem;
+}
+
+.users { /* CARDS */
+    width: 18rem;
+    display: inline-block!important;
+    margin: 1.25rem;
+}
+
+.minheight {
+    max-height: 15rem!important;
+    min-height: 5rem!important;
+}
+
+.userImage{
+    margin-top: 25px;
+}

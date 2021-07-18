@@ -1,0 +1,38 @@
+.main {
+    max-height: 75vh!important;
+    width: 85vw!important;
+    margin: 0 auto!important;
+    height: 75vh!important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.leagues {
+    width: 18rem;
+    display: inline-block!important;
+    margin: 1rem;
+}
+
+.m0-auto {
+    margin: 0 auto;
+}
+
+img {
+    display: block;
+    height: 10rem;
+    /* width: 10rem; */
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+}
+
+.mt-custom {
+    margin-top: 7rem!important;
+}

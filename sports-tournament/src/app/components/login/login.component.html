@@ -1,0 +1,24 @@
+<div class="register m-0 bg-custom">
+    <div class="container p-4 register-form-l bg-light m-4 shadow-lg border border-2 col-7">
+        <form #login="ngForm" (ngSubmit)="onSubmit(login)" class="m-0 m-auto align-middle">
+            <h1 class="text-secondary fs-1 fw-bolder mb-4">Iniciar Sesión</h1>
+            <div class="mb-3 row">
+                <input [(ngModel)]="user.username" class="p-2 form-control col" type="text" name="username" id="username" placeholder="Nombre de Usuario" required>
+            </div>
+            <div class="mb-3 row">
+                <input [(ngModel)]="user.password" class="p-2 form-control col" type="password" name="password" id="password" placeholder="Contraseña" required>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-outline-info btn-lg rounded-pill" type="submit" [disabled]="!login.form.valid">Iniciar Sesión</button>
+            </div>
+        </form>
+        <div class="mb-3 row gap-2 col-4 p-4 m-0 m-auto bg-info p-4 rounded-pill m-4 text-left">
+            <button class="btn btn-info col rounded-pill text-light" routerLink="/login">Login</button>
+            <button class="btn btn-outline-light col rounded-pill text-light" routerLink="/register">Register</button>
+        </div>
+    </div>
+    <div class="register-form-r m-0 col text-center">
+        <img src="./../../../assets/images/logo.png" class="rounded border-white" alt="logo">
+        <!-- <p class="custom-font fs-1 m-0 p-0 text-center text-light text-break fw-bolder">Control Torneo Deportivo Fundacion Kinal 2021</p> -->
+    </div>
+</div>

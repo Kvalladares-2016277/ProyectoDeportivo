@@ -1,0 +1,27 @@
+<div class="sidbar-admin bg-dark p-4 text-center d-flex flex-column justify-content-between align-items-center">
+
+    <div>
+        <img class="logo rounded" src="./../../../assets/images/logo-admin.png" routerLink="/home">
+        <h2 class="font-weight-bolder text-monospace"></h2>
+    </div>
+
+    <nav id="list-example" class="list-group">
+        <ul class="nav flex-column text-white text-start fw-bolder">
+            <li class="nav-item mb-1">
+                <a class="nav-link" routerLink="/homeAdmin"><i class="bi bi-house-door-fill me-2"></i>Dahboard</a>
+            </li>
+            <li class="nav-item mb-1">
+                <a class="nav-link" routerLink="/leagues"><i class="bi bi-grid me-2"></i> Ligas</a>
+            </li>
+            <li class="nav-item mb-1">
+                <a class="nav-link" routerLink="/users"><i class="bi bi-people-fill me-2"></i> Usuarios</a>
+            </li>
+        </ul>
+    </nav>
+
+    <footer>
+        <button type="button" class="btn btn-outline-light" (click)="logOut()">
+            Cerrar sesión
+        </button>
+    </footer>
+</div>

@@ -1,0 +1,38 @@
+{
+  "name": "sport-tournament-backend",
+  "version": "1.0.0",
+  "description": "Backend proyecto grupal Sport Tournament",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "aws-sdk": "^2.428.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "file-type": "^10.9.0",
+    "fs": "^0.0.1-security",
+    "jest": "^26.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
+    "supertest": "^4.0.2",
+    "underscore": "^1.10.2",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}

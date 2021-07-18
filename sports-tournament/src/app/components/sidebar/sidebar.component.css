@@ -1,0 +1,50 @@
+html,
+body {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.sidbar-admin {
+    width: 15vw;
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.sidbar-admin nav {
+    margin: 0 auto;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .sidbar-admin {
+        width: 100vw;
+    }
+}
+
+.logo {
+    max-width: 8rem;
+    max-height: 8rem;
+}
+
+a {
+    color: white;
+    transition: all .5s ease-in-out;
+}
+
+a:hover {
+    color: black;
+    border-bottom: 1px solid white;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+
+/* a:visited {
+    color: white;
+    border-bottom: 1px solid white;
+} */

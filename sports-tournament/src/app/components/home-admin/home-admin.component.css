@@ -1,0 +1,22 @@
+.main {
+    max-height: 100vh!important;
+    width: 85vw!important;
+    margin: 0 auto!important;
+    height: 100vh!important;
+}
+
+
+.graphics {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    .graphics {
+        display: block;
+    }
+}
+
+.graphics div {
+    height: 50%;
+}

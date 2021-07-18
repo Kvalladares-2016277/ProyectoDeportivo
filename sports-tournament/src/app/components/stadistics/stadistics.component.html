@@ -1,0 +1,41 @@
+<div class="main mt-custom">
+    <form class="container p-4 row" #graphic="ngForm" (click)="createGraphic(graphic)">
+        <p class="col">Reporte de</p>
+        <select name="reportTeam" [(ngModel)]="reportTeam" id="inputReport" class="form-select col">
+                    <option selected disabled>Tipo de Reporte</option>
+                    <option *ngFor="let report of reportTeams" [value]="report._id">{{report.team.name}}</option>
+        </select>
+        <button type="submit" class="btn btn-info mx-2 col">Generar</button>
+    </form>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Equipo</th>
+                    <th scope="col">Puntos Obtenido</th>
+                    <th scope="col">Goles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of reportTeams">
+                    <td>{{report.team.name}}</td>
+                    <td>{{report.score}}</td>
+                    <td>{{report.goals}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div *ngIf="hidden == true" class="col">
+        <div>
+          <div style="display: block;" >
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

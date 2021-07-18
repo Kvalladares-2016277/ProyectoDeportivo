@@ -1,0 +1,112 @@
+<div class="mt-custom container pt-4">
+    <div class="jumbotron p-2 ps-4 pe-4 bg-info shadow border border-2 rounded">
+        <p class="display-4 fw-bolder text-dark m-0">Liga "{{ league.name }}"</p>
+        <div class="d-flex gap-2 pt-2 pb-2">
+            <a class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#createTeam">Crear Equipo</a>
+            <a class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#modalCreateMarker">Resultados Jornada</a>
+            <a class="btn btn-success btn-lg">Ver tabla</a>
+            <a class="btn btn-light btn-lg">Mostrar Graficas</a>
+        </div>
+    </div>
+</div>
+
+<!-- Teams -->
+<div class="overflow-auto maxheight" *ngIf="league.teams.length != 0 && league != null; else noData">
+    <app-teams></app-teams>
+</div>
+<ng-template #noData>
+    <h2 class="text-muted text-center">No hay nada aquí</h2>
+</ng-template>
+
+<!-- Modal Create Team -->
+<div class="modal fade" id="createTeam" tabindex="-1" aria-labelledby="createTeamLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createTeamLabel">Crear Equipo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="modal-body" #teamForm="ngForm" (ngSubmit)="onSubmit(teamForm)">
+                <div class="mb-3">
+                    <label for="teamName" class="form-label">Ingresa el nombre del equipo:</label>
+                    <input [(ngModel)]="team.name" class="form-control" type="text" name="name" id="teamName" placeholder="Equipo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="teamImage" class="form-label">Elija una imagen:</label>
+                    <input class="form-control" type="file" name="img" id="teamImage" placeholder="Imagen" required (change)="fileChange($event)">
+                </div>
+                <div class="mb-3 d-grid gap-2">
+                    <button class="btn btn-success" type="submit" [disabled]="!teamForm.form.valid">Crear</button>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Create Marker -->
+
+<div class="modal fade" id="modalCreateMarker" tabindex="-1" aria-labelledby="modalCreateMarkerLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCreateMarkerLabel">Resultados Jornada</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <script></script>
+            <form class="modal-body" #match_dayForm="ngForm" (ngSubmit)="createMatchDay(match_dayForm)">
+                <div class="mb-3">
+                    <div class="row">
+                    <div class="col">
+                        <label class="form-label text-center">Fecha de Inicio</label>
+                        <input [ngModel]="soccergame.dateMatch" name="dateMatch" type="date" class="form-control" required>
+                      </div>
+                      <div class="col">
+                        <label class="form-label text-center">Hora de Juego</label>
+                        <input [ngModel]="soccergame.timeMatch" name="timeMatch" type="time" class="form-control" required>
+                      </div>
+                    </div>
+                    <label for="match_day" class="form-label">Jornada</label>
+                    <select [ngModel]="" name="journeyId" class="form-select" id="match_journey" required>
+                        <option selected disabled>Elige una jornada</option>
+                        <option *ngFor="let journeyLeague of journeysLeague" [value]="journeyLeague._id">{{journeyLeague.journey}}</option>
+                    </select>
+                </div>
+                <div class="mb-3 row">
+                    <label class="form-label col-6 text-center">Equipos</label>
+                    <label class="form-label col-6 text-center">Goles</label>
+                </div>
+                <div class="mb-3 p-1">
+                    <div class="row gap-2 ms-4 me-4 text-center">
+                        <select [ngModel]="soccergame.teamOne" name="teamOne" class="form-select col" required>
+                            <option  selected disabled>Equipo</option>
+                            <option *ngFor="let teamLeague of teamsLeague" [value]="teamLeague._id" >{{ teamLeague.name }} </option> 
+                        </select>
+                        <p class="fst-italic m-0 col-sm-2">-</p>
+                        <input type="number"[ngModel]="soccergame.goalsTeamOne" name="teamOneGoals" min=0 oninput="validity.valid||(value='');" class="form-control col" required>
+                    </div>
+                </div>
+                <h1 class="fst-itali fs-2 text-center">Vs</h1>
+                <div class="mb-3 p-1">
+                    <div class="row gap-2 ms-4 me-4 text-center">
+                        <select [ngModel]="soccergame.teamTwo" name="teamTwo" class="form-select col" required>
+                            <option selected disabled>Equipo</option>
+                            <option *ngFor="let teamLeague of teamsLeague" [value]="teamLeague._id">{{ teamLeague.name }}</option> 
+                        </select>
+                        <p class="fst-italic m-0 col-sm-2">-</p>
+                        <input type="number" [ngModel]="soccergame.goalsTeamTwo" name="teamTwoGoals" min=0 oninput="validity.valid||(value='');" class="form-control col" required>
+                    </div>
+                </div>
+                <div class="mb-3 row ps-4 pe-4">
+                    <button class="btn btn-success" [disabled]="!match_dayForm.form.valid">Agregar Resultados</button>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

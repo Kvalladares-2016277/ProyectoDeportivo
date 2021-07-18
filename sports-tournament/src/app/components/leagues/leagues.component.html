@@ -1,0 +1,74 @@
+<div class="mt-custom main p-4">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid p-4 ps-4 pe-4 bg-light shadow border border-2 rounded d-flex align-middle">
+            <p class="display-4 fw-bolder text-dark m-0">Ligas</p>
+            <a class="btn text-success fs-1" role="button" data-bs-toggle="modal" data-bs-target="#createLeague"><i class="bi bi-plus-circle-fill"></i></a>
+        </div>
+        <br>
+        <div class="overflow-auto maxheight" *ngIf="leagues.length != 0 && leagues != null; else noData">
+            <div class="card shadow-sm leagues bg-light col-1 p-1" style="width: 18rem;" *ngFor="let league of leagues">
+                <img src="./../../../assets/images/soccer.jpg" class="card-img-top" alt="..." (click)="sendLeagueInfo(league)" routerLink="/league">
+                <div class="card-body position-relative">
+                    <h5 class="card-title fw-bolder mb-2 text-center">{{ league.name }}</h5>
+                    <hr>
+                    <div class="row gap-2 m0-auto">
+                        <a class="btn btn-warning col-5" data-bs-toggle="modal" data-bs-target="#updateLeague" (click)="setLeagueInfo(league)"><i class="bi bi-pencil-square"></i></a>
+                        <a class="btn btn-danger col-5" (click)="deleteLeague(league)"><i class="bi bi-trash-fill "></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noData>
+            <h2 class="text-muted text-center">No hay nada aquí</h2>
+        </ng-template>
+    </div>
+</div>
+
+<!-- Modal Create League -->
+<div class="modal fade" id="createLeague" tabindex="-1" aria-labelledby="createLeagueLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createLeagueLabel">Crear liga</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="modal-body" #leagueForm="ngForm" (ngSubmit)="onSubmit(leagueForm)">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Ingresa el nombre de la liga:</label>
+                    <input [(ngModel)]="league.name" class="form-control" type="text" name="name" id="name" placeholder="Liga" required>
+                </div>
+                <div class="mb-3 d-grid gap-2">
+                    <button class="btn btn-success" type="submit" [disabled]="!leagueForm.form.valid">Crear</button>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update League -->
+
+<div class="modal fade" id="updateLeague" tabindex="-1" aria-labelledby="updateLeagueLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateLeagueLabel">Modificar liga</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="deleteLeagueInfo()"></button>
+            </div>
+            <form class="modal-body" #updateLeagueForm="ngForm">
+                <div class="mb-3">
+                    <label for="updateName" class="form-label">Nombre de la liga:</label>
+                    <input [(ngModel)]="league.name" class="form-control" type="text" name="name" id="updateName" placeholder="Nuevo nombre de liga" required>
+                </div>
+                <div class="mb-3 d-grid gap-2">
+                    <button class="btn btn-warning" type="submit" [disabled]="!updateLeagueForm.form.valid" (click)="updateLeague(updateLeagueForm)">Actualizar</button>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteLeagueInfo()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

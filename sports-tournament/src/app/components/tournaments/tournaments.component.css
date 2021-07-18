@@ -1,0 +1,25 @@
+.main {
+    max-height: 100vh!important;
+    width: 85vw!important;
+    margin: 0 auto!important;
+    height: 100vh!important;
+}
+
+.jumbotron{
+    background: #3A0CA3;
+}
+
+.maxheight {
+    max-height: 30rem;
+}
+
+.tournaments { /* CARDS */
+    width: 18rem;
+    display: inline-block!important;
+    margin: 1.25rem;
+}
+
+.minheight {
+    max-height: 20rem!important;
+    min-height: 15rem!important;
+}
